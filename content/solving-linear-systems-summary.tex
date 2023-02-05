@@ -1,0 +1,81 @@
+\begin{frame}
+~\\
+{\blank
+\underline{RECAP:}\\
+\underline{Aim:} Given $A\in\mathbb{R}^{m\times n}~(m\neq n),~b\in\mathbb{R}^m$, find $x\in\mathbb{R}^n$, such that $$Ax=b.$$
+\underline{Our current approach:} Direct method (= finitely many steps)\\
+\underline{Idea:} Use the fact $ax = b~~\Leftrightarrow~~\underbrace{TA}_{\tilde{A}}x=\underbrace{Tb}_{\tilde{b}}~~\forall~T\in GL_m(\mathbb{R})$
+($''\Rightarrow''$: $T$ linear and $''\Leftarrow''$: $T$ injective)\\
+~\\
+The goal is to apply multiple $T$'s so that ultimately $\tilde{A}$ is ''triangular'' ($\rightarrow$ easy to solve).\\
+To reach this goal we apply the following two elementary operations:
+\begin{itemize}\blank
+	\item [1)]
+	Add a nonzero multiple of one row to multiple other rows:
+	$$
+	L_{\textcolor{cyan}{j}} = \begin{pmatrix}
+	1&0&\cdots&~&0\\
+	0&\ddots&0&\cdots&\vdots\\
+	\vdots&0&\textcolor{cyan}{1}&0&~\\
+	~&\vdots&\textcolor{cyan}{|}&\ddots&0\\
+	0&0&\textcolor{cyan}{|}&0&1
+	\end{pmatrix}~~~\rightarrow~\text{Frobenius matrices}
+	$$
+	\item [2)]
+	Row swap:
+	$$
+	\rightarrow~~P~\text{permutation matrix}
+	$$
+\end{itemize}
+}
+\end{frame}
+\begin{frame}
+	~\\
+	{\blank
+		\underline{RECAP:}\\
+		\underline{Solve:} $Ax=b,~A\in\mathbb{R}^{m\times n},~b\in\mathbb{R}^m$\\
+		\underline{Apply:} $L_j,~P_{jk_j}~~\rightsquigarrow~~Ux=z$,
+		In fact: $(m=n)$
+		\begin{align*}
+		&\underbrace{
+			L_{(n-1)}P_{(n-1)k_{(n-1)}}\dots L_2P_{2k_2}L_1P_{1k_1}}_{=\underbrace{
+				(\hat{L}_{(n-1)}\cdot\dots\cdot\hat{L}_1)}_{=:\tilde{L}}\underbrace{
+				(P_{(n-1)k_{(n-1)}}\cdot\dots\cdot P_{1k_1})}_{=:P}}\cdot A=U~~(\leftarrow~\text{REF})\\
+		\Leftrightarrow~~&\tilde{L}PA=U
+		\stackrel{L:=\tilde{L}^{-1}}{\Leftrightarrow}~~PA = LU~~(LU-\text{decomposition of}~A~\text{with row pivoting})
+		\end{align*}
+		\begin{itemize}\blank
+			\item [1)]
+			\underline{Frobenius matrix:}
+			$L_j = I+l_je_j^T\in\mathbb{R}^{m\times m},~l_j:=~(0,\dots,0,l_{j+1,j},\dots,l_{m,j})^T\in\mathbb{R}^m$
+			\begin{itemize}
+				\item [i)]
+				$L_j^{-1}=I-l_je_j^T$
+				\item [ii)]
+				$L_i\cdot L_j = I+l_je_j^T+l_ie_i^T$
+			\end{itemize}
+			\item [2)]
+			\underline{Permutation matrix:}\\
+			$P\in\mathbb{R}^{m\times m}$ is called permutation matrix if it has exactly one entry ''1'' in each row and column
+			$$
+			P=(p_{ij})_{ij}=\begin{pmatrix}
+			0&\cdots&1&0\\
+			0&1&\cdots&0\\
+			~&~&\vdots&~\\
+			0&\cdots&0&1
+			\end{pmatrix}~
+			{\cyan \begin{bmatrix}
+				p_1\\p_2\\\vdots\\p_m
+				\end{bmatrix},~p_i:=~\text{gives us the column of the 1 in the i-th row}}
+			$$
+			$p_{ij}:=\lbrace\begin{matrix}
+			1:~{\cyan p_i=j}\\
+			0:~\text{else}
+			\end{matrix}$, Bsp.: $P = \begin{pmatrix}
+			0&1&0\\1&0&0\\0&0&1
+			\end{pmatrix}{\cyan \begin{bmatrix}
+				2\\1\\3
+				\end{bmatrix}}$
+		\end{itemize}
+	}
+\end{frame}

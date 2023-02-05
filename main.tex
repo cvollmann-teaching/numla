@@ -1,0 +1,149 @@
+% !TeX spellcheck = en_US
+%%
+\input{./macros/inputpaths}
+\input{./macros/usepackages}
+\input{./macros/commands}
+\input{./macros/toggles}
+\input{./macros/includedlecture}
+
+%meta
+\newcommand{\LectureName}{Introduction to Numerical Linear Algebra}
+\newcommand{\Lecturer}{Dr. Christian Vollmann}
+\newcommand{\Semester}{Winter Term 2022/2023}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\qedsymbol{\blank$\square$}
+
+%% style files
+\input{./macros/style}
+\mode<presentation>{\input{./macros/beamerstyle}}
+\mode<article>{\input{./macros/articlestyle}}
+
+\begin{document}
+
+% TO GENERATE A GOODNOTES TEMPLATE	
+%%%
+% IMPORTANT: in beamerstyle put "horizontal margin" in geometry from 0.4 to 0.0
+%%%
+%	\begin{frame}[plain,noframenumbering]
+%		\vspace{-0.23cm}
+%		\begin{tikzpicture}
+%		\draw[step=0.5cm,color=darkgray] (0,0) grid (18.5cm,13cm);
+%		\end{tikzpicture}
+%	\end{frame}
+%	
+
+%%%%%%%%%%%%%%%%%%%%
+% title page + intro
+%%%%%%%%%%%%%%%%%%%%
+\lecture{}{intro}
+\setcounter{page}{0}
+\setcounter{framenumber}{0}	
+\begin{frame}
+	\thispagestyle{empty}
+	\Vspace{4cm}
+	\centering
+	{\Huge\bf Introduction to}\\
+	\vspace*{0.43cm}
+    {\Huge\bf Numerical Linear Algebra}\\
+    \Vspace{1cm}
+	{\Large\Lecturer}\\
+	\Vspace{0.3cm}
+	{\small\Semester}\\
+\end{frame}
+\begin{frame}
+	\begin{center}
+		\begin{minipage}{0.8\textwidth}
+			\vspace*{2cm}
+				At Trier University variants of this course serve the modules:\\
+			-- Elements of Mathematics \\
+			-- Elemente der Linearen Algebra \\
+			-- Numerical Methods for Geoscientists
+			\vspace*{1.5cm}
+			~\\
+			Based on slides provided by \href{https://www.math.uni-trier.de/~schulz/}{Prof. Dr. Volker Schulz}\\
+			\vspace*{0.5cm}
+			~\\
+			\begin{minipage}[t]{0.3\textwidth}
+				~\\[0.2cm]
+				\centering
+				{\licensePicture[0.078]}
+			\end{minipage}
+			\begin{minipage}[t]{0.5\textwidth}
+				~\\
+				\centering
+				{\footnotesize\licenseText}
+			\end{minipage}	
+		\end{minipage}
+	\end{center}
+\end{frame}
+\input{./content/intro-python.tex}
+\input{./content/intro-topic.tex}
+
+%%%%%%%%%%
+% CONTENT
+%%%%%%%%%%
+\AtBeginLecture{
+	\only<presentation>{\frame[noframenumbering,c]{
+		~\\~\\	
+		\begin{center}
+			\begin{minipage}{0.8\textwidth}
+				\bf \Large \insertlecture~\\~\\
+			\end{minipage}
+		\end{center}					
+}
+}
+}
+
+
+% basics
+\only<presentation>{\setnextsection{0}}
+\lecture{Math Basics}{basics}
+\input{./content/math-basics}
+
+% linalg
+\only<presentation>{\setnextsection{1}}
+\lecture{Fundamentals of Linear Algebra}{la}
+\input{./content/linear-algebra}
+
+% solving linear systems
+\only<presentation>{\setnextsection{2}}
+\lecture{Solving Linear Systems (Direct Methods)}{sollinsys}
+\input{./content/direct-solver}
+
+% eigvals
+\only<presentation>{\setnextsection{3}}
+\lecture{Eigenvalues: Theory and Algorithms}{eigvals}
+\input{./content/eigenvalues} 
+
+% svd
+\only<presentation>{\setnextsection{4}}
+\lecture{Singular Value Decomposition (SVD)}{svd}
+\input{./content/svd}  
+\input{./content/svd-pca}
+
+% splitting
+\only<presentation>{\setnextsection{5}}
+\lecture{Solving Linear Systems with Iterative Methods}{iterative}
+\input{./content/splitting-methods} 
+\input{./content/krylov-subspace-methods}
+
+
+% least squares
+\only<presentation>{\setnextsection{6}}
+\lecture{\color{fontcolor}Least Squares Problems}{leastsquares}
+\input{./content/leastsquares}
+\input{./content/least-sqaures-minnorm-regularization}
+
+% vector spaces
+\only<presentation>{\setnextsection{7}}
+\lecture{\color{fontcolor}Vector Spaces}{vectorspaces}
+\input{./content/vector_spaces}
+
+% calculus
+\only<presentation>{\setnextsection{8}}
+\lecture{\color{fontcolor}Calculus}{nonlinear}
+\input{./content/nonlinear}
+\end{document}
+			
+			
+			

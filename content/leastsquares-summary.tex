@@ -1,0 +1,101 @@
+\begin{frame}
+	~\\
+	{\blank
+	\underline{Recap:}\\
+	\underline{Situation:} $A\in\mathbb{R}^{m\times n},~b\in\mathbb{R}^m~(m\gg n,~b\notin\text{Im}(A))$\\
+	Find $\widehat{x}\in\mathbb{R}^n$, such that
+	\begin{align*}
+	&\|A\widehat{x}-b\|_2^2=\min_{x\in\mathbb{R}^n}\|Ax-b\|_2^2\\
+	:\Leftrightarrow~~&\|A\widehat{x}-b\|_2^2\leq\|Ax-b\|_2^2~\forall~x\in\mathbb{R}^n\\
+	:\Leftrightarrow~~&\widehat{x}:=\underset{x\in\mathbb{R}^n}{\mathrm{argmin}}\|Ax-b\|_2^2
+	\end{align*}
+	draw image for $m=3,n=2$ to illustrate $A\widehat{x}-b\perp\text{Im}(A)$
+	\begin{align*}
+	&A\widehat{x}-b\perp\text{Im}(A)=\text{span}(a_1,\dots,a_n)\\
+	\Leftrightarrow~~&a_j^T(A\widehat{x}-b)=0~~\forall~j=1,\dots,n\\
+	\Leftrightarrow~~&A^T(A\widehat{x}-b)=0~~\Leftrightarrow~~A\widehat{x}-b\in\text{ker}(A^T)\\
+	&A=\begin{pmatrix}
+	|&~&|\\a_1&\cdots&a_n\\|&~&|
+	\end{pmatrix},~A^T=\begin{pmatrix}
+	-&a_1&-\\~&\vdots&~\\-&a_n&-
+	\end{pmatrix},~A^Tw=\begin{pmatrix}
+	a_1^Tw\\\vdots\\a_n^Tw
+	\end{pmatrix}=\begin{pmatrix}
+	0\\\vdots\\0
+	\end{pmatrix}\\
+	\Leftrightarrow~~&A^TA\widehat{x}=A^Tb~~\textbf{Normal equation}\\
+	&(\text{Im}(A))^\bot=\text{ker}(A^T)
+	\end{align*}
+}
+\end{frame}
+
+\begin{frame}
+	~\\
+	{\blank
+	\underline{Properties of the normal equation:}\\
+	$\widehat{x}=\underset{x\in\mathbb{R}^n}{\mathrm{argmin}}\|Ax-b\|_2^2~~\Leftrightarrow~~A^TA\widehat{x}=A^Tb$\\
+	$\widehat{S}:=\{x\in\mathbb{R}^n:~A^TAx=A^Tb\}$
+	\begin{itemize}\blank
+		\item 
+		$A^TA$ is symmetric and positive semi-definite
+		\item
+		$\text{ker}(A^TA)=\text{ker}(A)$
+		\begin{align*}
+		\text{columns of A independent}~~&\Leftrightarrow~~\{0\}=\text{ker}(A)=\text{ker}(A^TA)\\
+		&\Leftrightarrow~~A^TA~\text{is invertible}\\
+		&\Leftrightarrow~~\text{normal equation admits a unique solution}
+		\end{align*}
+		$M$ symmetric $\Rightarrow~~\exists~Q\in\mathbb{R}^{n\times n}$ orthogonal, $\Lambda\in\mathbb{R}^{n\times n}$ diagonal: $M=Q\Lambda Q^T$\\
+		$M$ positive definite $\Rightarrow~~\lambda >0~\forall\lambda\in\sigma(M)$\\
+		$M$ sym. + pos. def. $\Rightarrow~~M$ invertible $\Rightarrow$ col. of $M$ invertible
+	\end{itemize}
+\underline{Remark:}
+\begin{itemize}\blank
+	\item [i)]
+	Let $M$ be symmetric:
+	\begin{align*}
+	M~\text{pos. def.}~~&\stackrel{\lambda>0}{\Rightarrow}~~M~\text{invertible}\\
+	&\nLeftarrow~~\text{e.g.},~\begin{pmatrix}1&0\\0&-1\end{pmatrix}~\text{is invertible but}~\sigma(M)=\{1,-1\}~\text{and therefore not positive definite}
+	\end{align*}
+	$\Rightarrow$ There are invertible symmetric matrices which are neither positive nor negative definite.
+	\item [ii)]
+	Let $M$ be symmetric an positive semi-definite:
+	$$
+	M~\text{positive definite}~~\Leftrightarrow~~M~\text{invertible}
+	$$
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}
+	~\\
+	{\blank
+	\underline{Cholesky decomposition:}\\
+	``improvement of LU-decomposition for sym. + p.d. matrices (spd)''\\
+	$\forall~M\in\mathbb{R}^{n\times n}$ sym. + pos.def. $\exists_1L\in\mathbb{R}^{n\times n}:~\underbrace{M=LL^T}_{\text{Factorization}}$
+	$Mx=b~~\Leftrightarrow~~L\underbrace{L^Tx}_{=:z}=b~~\Leftrightarrow~~\underbrace{z=L^Tx,~Lz=b}_{\text{Solving}}$\\
+	\underline{Remark:}\\
+	If $M$ is only positive semi-definite (instead of pos. definite), then we can still find a $L$ such that $M=LL^T$, but this $L$ is no more invertible nor unique.\\
+	~\\
+	\underline{Existence:}\checkmark\\
+	The normal equation has at least one solution.\\
+	~\\
+	\underline{Consistent reformulation:}\\
+	If $b\in\text{Im}(A)$, then $S=\widehat{S}$:
+	\begin{itemize}\blank
+		\item ``$ S   \subset\widehat{S}$´':
+		Let $x\in S=\{x\in\mathbb{R}^n:~Ax=b\}$ (such an $x$ exists because we assume $b\in\text{Im}(A)$)
+		\begin{align*}
+		&\Rightarrow~~Ax-b=0\\
+		&\stackrel{A^T\cdot|}{\Rightarrow}~~A^T(Ax-b)=0\\
+		&\Rightarrow~~x\in S=\{x\in\mathbb{R}^n:~A^TAx=A^Tb\}
+		\end{align*}
+		\item ``$ \widehat{S} \subset S$´':
+		Let $\widehat{x}\in\widehat{S}$, then $\widehat{x}:=\underset{x\in\mathbb{R}^n}{\mathrm{argmin}}\|Ax-b\|_2^2$
+		\begin{align*}
+		&\Rightarrow~~\|A\widehat{x}-b\|_2^2=0,~\text{because}~b\in\text{Im}(A)\\
+		&\Rightarrow~~A\widehat{x}-b~~\Rightarrow~~\widehat{x}\in S
+		\end{align*}
+	\end{itemize}
+}
+\end{frame}

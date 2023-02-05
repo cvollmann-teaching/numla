@@ -1,0 +1,30 @@
+\begin{frame}
+	~\\
+	{\blank
+	\underline{Recap:}\\
+	\underline{Situation:}\\
+	$A\in GL_n(\mathbb{R})$ (for any $b\in\mathbb{R}^n$ there is an unique solution) with $n$ typically large and $A$ sparse (= many zeroes)\\
+	\underline{General result:} Fixed Point Iteration\\
+	Let $M,N\in\mathbb{R}^{n\times n},~b\in\mathbb{R}^n$ with $\rho(M)\stackrel{f_M~\text{contraction}}{=}\max_{\lambda\in\sigma(M)}|\lambda|$, then
+	$$
+	f_M:~\mathbb{R}^n\rightarrow\mathbb{R}^n,~x\mapsto Mx+Nb
+	$$
+	has a fixed point $x^*$ (i.e., $f_M(x^*)=x^*$), which is the limit of
+	$$
+	x^{k+1}=f_M(x^k)=Mx^k+Nb,~x^0\in\mathbb{R}^n
+	$$
+	Apply the result to solve linear systems: $Ax=b$\\
+	$\Rightarrow~~$ \textbf{Splitting Methods}\\
+	\underline{Idea:}\\
+	Define a function $f_M$ with $\rho(M)<1$ such that its fixed point solves $Ax=b$, i.e.,
+	\begin{align*}
+	f_M(x)=x~~&\Leftrightarrow~~Ax=b\\
+	&\Leftrightarrow~~x=\underbrace{(I-A)}_{=:M}x+b
+	\end{align*}
+	Then, if $\rho(M)=\rho(I-A)<1$, we can use
+	$$
+	x^{k+1}=f_M(x^k)=(I-A)x^k+b
+	$$
+	as an iterative method to solve $Ax=b$.
+}
+\end{frame}

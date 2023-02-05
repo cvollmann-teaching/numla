@@ -1,0 +1,25 @@
+%% SECTION
+\newcommand{\Section}[1]{\section{#1}}
+\newcommand{\Subsection}[1]{\subsection{#1}}
+\newcommand{\Subsubsection}[1]{\subsubsection{#1}}
+
+ 
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{fullpage}
+
+
+\usepackage[font=small, labelfont=bf]{caption}
+\captionsetup{width=0.9\linewidth}
+
+
+\iftoggle{printver}{
+	% printing	
+	\definecolor{fontcolor}{RGB}{0,0,0}
+	\definecolor{bgcolor}{RGB}{255,255,255}
+	%	\definecolor{cites}{RGB}{115,0,0}
+}{
+	% presentation
+	\definecolor{bgcolor}{RGB}{50,50,50}
+	\definecolor{fontcolor}{RGB}{255,255,255}
+}

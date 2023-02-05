@@ -1,0 +1,265 @@
+% !TeX spellcheck = en_US
+\begin{frame}
+\Subsection{Regularization and Minimum Norm Least Squares Solution (enforce uniqueness)}
+~\\
+\Subsubsection{Motivation and Overview}
+~\\
+\textbf{\color{header}Situation:} Columns of $A$ are possibly linearly dependent $\left(\ker(A) \supsetneqq \{0\}\right)$\\
+~~~$\Rightarrow$ $A^TA$ \textit{not} invertible\\
+~~~$\Rightarrow$ there are infinitely many solutions of $A^TAx = A^Tx$ ~~(or if $b \in \im(A)$, of $Ax = b$)\\~\\
+\Hide{
+\begin{itemize}
+	\item Geometric perspective:\\ 
+	Draw a picture with dependent columns of $A$ and consider an example $b \in \im(A)$ and an example $b \notin \im(A)$.\\
+\item Algebraic perspective:\\ 
+Let $\widehat{x}$ be a solution of the normal equation, then for all $x_0 \in \ker(A)$ we have that $\widehat{x} +x_0$ is also a solution. In fact, we find $$A^\top A (\widehat{x} + x_0) = A^\top (A \widehat{x} + A x_0)=A^\top A \widehat{x}.$$
+\end{itemize}
+}
+~\\~\\~\\
+$\rightarrow$ We say the minimization problem is \textit{ill-posed} ($\neq$ well-posed $=$ existence+uniqueness)\\
+~\\
+\textbf{\color{header}Question:} Which solution to pick?
+~\\~\\
+We briefly discuss two approaches: \textbf{Tikhonov Regularization} and \textbf{Minimum norm solution}
+\end{frame}
+
+
+\begin{frame}
+\Subsubsection{Tikhonov Regularization}
+~\\
+Tikhonov Regularization of the least squares problem (\textit{ridge regression}):
+\begin{equation} \label{prob:regularized_leastsquares}
+\min_{x\in \Rn} \|Ax-b\|_2^2 + \frac{\delta}{2}\|x\|_2^2,~~~\text{  for }\delta > 0 ~\text{small}.
+\end{equation}	  	 
+\Hide{Remarks
+	\small
+	\begin{itemize}
+	\item  We enforce uniqueness by reformulating the problem. In fact, the idea here is to add a strictly convex regularization term $\frac{\delta}{2}\|x\|_2^2$ to the original objective function (\textit{convexification}).
+	\item The parameter $\delta >0$ is sometimes called \textit{regularization parameter}. The smaller it is, the closer do we get to the original problem, the more is the minimization of the residual emphasized.
+	\item One can generalize the regularization term to a rather generic strictly convex function. Thereby one can control properties of the solution. For example, choosing the $\|\cdot\|_1$-- instead of the $\|\cdot\|_2$--norm enforces sparsity on the solution, which is a desirable feature in many applications.
+\end{itemize}
+}
+
+~\\~\\
+\textbf{Characterization of the ``regularized'' solution }
+	$$x_\delta := \arg \min_{x \in \Rn} \|Ax-b\|_2^2 + \tfrac{\delta}{2}\|x\|_2^2$$
+\begin{theo}[``Regularized'' Normal Equation]\label{theo:reg-lstsq}
+	Let $A \in \Rmn$ and $b \in \Rm$. Then $x_\delta\in \Rn$ solves the regularized problem \eqref{prob:regularized_leastsquares}	
+	if and only if $x_\delta$ solves the \textit{\textbf{``regularized'' normal equation}} 
+	\begin{equation}\label{eq:regularized_normaleq}
+	(A^TA  + \delta I)x = A^Tb. 
+	\end{equation}
+\end{theo}
+\textit{Proof:} \\
+\Hide{Defining the (strictly convex) function $f(x) := \|Ax-b\|_2^2 + \tfrac{\delta}{2}\|x\|_2^2$, one can show for the sufficient and necessary first-order optimality conditions:
+$$f'(x) = 0 \iff (A^TA  + \delta I)x = A^Tb.$$
+}
+\end{frame}
+
+\begin{frame}
+~\\
+\textbf{\color{header}Analysis of the ``regularized'' normal equation}\\ ~\\
+\Hide{\begin{itemize}
+	\item The matrix $A^TA  + \delta I$ is symmetric and positive definite \textit{for all}  $\delta > 0$ and thus \textbf{invertible}. More precisely:~\\~\\
+	{\color{cyan}
+		\begin{itemize}
+			\item Symmetry:
+			\textit{\color{cyan}(Recall: A matrix $B$ is called symmetric, if $B^T=B$ holds.)}\\
+			$(A^TA +\delta I)^T \ \ =\ \ (A^TA)^T+\delta I^T\ \ =\ \ A^TA+\delta I$~\\~\\
+			\item Positivity
+			\textit{\color{cyan}(Recall: A matrix $B$ is called positive definite, if $x^TBx> 0$ holds $\forall x\in\mathbb{R}^n$.)}\\
+			$x^T(A^TA+\delta I)x\ \ =\ \ \underbrace{x^T(A^TA)x}_{ {\geq 0}}+\underbrace{\delta}_{{>0}}\underbrace{x^Tx}_{{>0}}\ > 0\ \ \text{for all}~ x\in\mathbb{R}^n\setminus\{0\}$
+		\end{itemize}
+	} ~\\
+	Therefore, the equation \eqref{eq:regularized_normaleq} has the unique solution $$x_\delta = (A^TA  + \delta I)^{-1}A^T.$$
+
+	\item The smaller $\delta$, the more is the error minimization emphasized, the more do we approach the normal equation.~\\~\\
+	\item We note that the vector $x_\delta$ (for $\delta > 0$) does neither solve $Ax =b$ nor $A^TAx = A^Tb$!
+\end{itemize}}	 
+\end{frame}
+
+
+\begin{frame}
+\Subsubsection{Minimum Norm Solution and the Moore--Penrose Pseudoinverse}
+~\\
+Idea: Among the infinitely many solutions we pick the one with \textit{smallest} norm, i.e.,
+\begin{equation}\label{prob:minimumnorm_ls}
+ \min_{x \in \hat{S}}  \|x\|_2^2~ ~~~~~{\small\left(\hat{S} := \{x \in \Rn: A^TAx = A^Tb \}\right)}.
+\end{equation}  
+$\rightarrow$ We enforce uniqueness by determining a specific selection criterion.
+~\\~\\~\\~\\
+\textbf{Characterization of the minimum-norm solution} 
+$$x^+ := \arg \min_{x \in \hat{S}}\|x\|_2^2$$
+\begin{theo}[Minimum-Norm Least Squares]
+	Let $A \in \Rmn$ and $b \in \Rm$. Then $$x^+ = \lim\limits_{\delta \to 0} x_\delta$$ 
+	solves the minimum-norm least squares problem \eqref{prob:minimumnorm_ls}. Here, $x_\delta = (A^TA  + \delta I)^{-1}A^Tb$ is the solution of the regularized least squares problem \eqref{prob:regularized_leastsquares}.
+\end{theo}
+\textit{Proof:} Uses the singular value decomposition.\\
+~~\\
+
+\end{frame}
+
+\begin{frame}\normalsize
+	 \textbf{\color{header}Remarks}\\
+\Hide{	 \begin{itemize} 
+	 	\item By construction $x^+$ has two properties:\\~\\
+{ 
+	 	\begin{itemize}\normalsize 
+	 		\item[]1) It is a least squares solution, i.e., \\
+	 		  $$A^TAx^+ = A^Tb  ~~~\text{(or if $b \in \im(A)$, also $Ax^+ = b$)}.$$~\\
+	 		\item[]2) It is the one with smallest norm, i.e.,\\
+	 		 $$\|x^+\|_2 \leq \|\widehat{x}\|_2  ~~\forall~ \widehat{x} \in \hat{S}.$$
+	 	\end{itemize}
+ 	}
+ 	\item By applying Theorem \ref{theo:reg-lstsq} we find
+ 	$$x^+ = \lim\limits_{\delta \to 0} x_\delta  = \lim\limits_{\delta \to 0}  (A^TA  + \delta I)^{-1}A^T b  = { \color{cyan}\left( \lim\limits_{\delta \to 0}  (A^TA  + \delta I)^{-1}A^T\right)} b .$$
+	 	\item One can show that the limiting matrix
+	 	$${\color{cyan}A^+} := {\color{cyan}\lim\limits_{\delta \to 0}   (A^TA  + \delta I)^{-1}A^T}$$
+	 	is precisely the so-called \textit{Moore--Penrose Pseudoinverse} of $A$ (proof below). With the help of the SVD $U\Sigma V^\top =A$, it can be computed by 
+	 	{\color{satzrot}$$A^+ = V \Sigma^+ U^\top, $$}
+	 	where the pseudoinverse of a diagonal matrix $\Sigma = \text{diag}(\sigma_1,\ldots, \sigma_r,0,\ldots,0)$ is given by
+	 		{\color{satzrot}$$\Sigma^+ = \text{diag}(\frac{1}{\sigma_1},\ldots, \frac{1}{\sigma_r},0,\ldots,0).$$}
+	 \end{itemize}}
+\end{frame}
+
+
+% PSEUDOINVERSE
+\begin{frame}
+	\textbf{\large The Moore--Penrose Pseudoinverse}
+	~\\
+	Let us explain why the term \textit{pseudoinverse} is used here.~\\
+	Let $A \in \Rmn$ with $m\neq n$, then $A$ and the corresponding function $f_A \colon \Rn \to \Rm$ can't be invertible. In fact, there can't be a one-to-one relation between the spaces $\Rn$ and $\Rm$ in this case.\\~\\
+	%
+\begin{itemize}
+	\item[$\rightarrow$] The two spaces have different dimensions. For instance, a single nonzero vector can explain a line ($\R$), but two independent vectors are needed to explain a plane ($\R^2$).\\~\\
+	%
+	\item[$\rightarrow$] One could say that $\Rn$ and $\Rm$ are ``differently large'' if $m \neq n$.
+\end{itemize}
+	~\\~\\~\\
+	\textbf{\color{header}However:} We still aim at solving systems $Ax = b$ for $A \in \Rmn$ with possibly $m\neq n$.\\~\\
+	%
+	\textit{Recall:} If $A$ is invertible (then in particular $m=n$), then $x = A^{-1}b$ is the unique solution. The inverse is a function which maps the right-hand side to the unique solution.\\~\\
+	$\rightarrow$ As seen above, the concept of an inverse matrix fails if $m\neq n$.\\~\\~\\
+	%
+	\Hide{
+	The minimum-norm least squares solution is a generally applicable concept which maps a right-hand side to ``some sort of \textit{unique} solution'': 
+	~\\
+	$$x^+:=x^+(b):=  \arg\min_{s.t. ~A^TAx = A^Tb} \|x\|_2^2= { \color{cyan}\left( \lim\limits_{\delta \to 0}  (A^TA  + \delta I)^{-1}A^T\right)} b~~~~~~~\text{($x^+$ uniquely exists!)}$$
+	~\\
+}
+\end{frame}
+
+%
+%
+\begin{frame}
+ We finally show
+ \begin{itemize}
+ 	\item[i)] The limiting matrix is the Moore--Penrose Pseudoinverse:
+ 	$$A^+:= \lim_{\delta \to 0}(A^TA  + \delta I)^{-1}A^T =  V \Sigma^+ U^\top $$
+ 	\item[ii)] Applying the Moore--Penrose Pseudoinverse to $b$ gives the minimum-norm least squares solution: 
+ 	$$x^+ = V \Sigma^+ U^\top b.$$
+ \end{itemize}
+~\\
+\Hide{
+\textbf{To i)}\\
+Let us consider the SVD $A=U\Sigma V^\top$, then
+$$A^TA  + \delta I = V(\Sigma^\top\Sigma + \delta^2 I)V^\top, $$
+where $$\Sigma^\top\Sigma + \delta^2 I = \text{diag}(\sigma_1^2 + \delta^2,\ldots,\sigma_r^2 + \delta^2,\delta^2,\ldots,\delta^2)$$
+with inverse
+$$(\Sigma^\top\Sigma + \delta^2 I)^{-1} = \text{diag}(1/(\sigma_1^2 + \delta^2),\ldots,1/(\sigma_r^2 + \delta^2),1/\delta^2,\ldots,1/\delta^2)$$
+ Thus 
+$$(A^TA  + \delta I)^{-1}A^T = V [(\Sigma^\top\Sigma + \delta^2 I)^{-1}\Sigma^\top ]V^\top  $$
+where 
+$$(\Sigma^\top\Sigma + \delta^2 I)^{-1}\Sigma^\top= \text{diag}(\frac{\sigma_1}{\sigma_1^2 + \delta^2},\ldots,\frac{\sigma_r}{\sigma_r^2 + \delta^2},0,\ldots,0) ~~\to~~ \text{diag}(\frac{1}{\sigma_1},\ldots,\frac{1}{\sigma_r},0,\ldots,0)  =\Sigma^+ $$
+for $\delta \to 0$.
+}
+\end{frame}
+\begin{frame}
+\textbf{To ii)}
+1. Let us start with the simple case: $A\in \Rmn $ diagonal\\
+\Hide{
+		\begin{align*}
+		A&=\begin{pmatrix}
+		a_{11}&~&~&~&~&0\\
+		~&\ddots&~&~&~&~\\
+		~&~&a_{rr}&~&~&~\\
+		~&~&~&0&~&~\\
+		~&~&~&~&\ddots&~\\
+		0&~&~&~&~&0
+		\end{pmatrix}\in\mathbb{R}^{m\times n},~a_{ii}\neq 0,~~~A^TA=\begin{pmatrix}
+		a_{11}^2&~&~&~&~&0\\
+		~&\ddots&~&~&~&~\\
+		~&~&a_{rr}^2&~&~&~\\
+		~&~&~&0&~&~\\
+		~&~&~&~&\ddots&~\\
+		0&~&~&~&~&0
+		\end{pmatrix}\in\mathbb{R}^{n\times n}
+		\end{align*}
+		\small
+		\underline{Normal equation:}
+		\begin{align*}
+		A^TAx=A^Tb=\begin{pmatrix}
+		a_{11}b_1\\\vdots\\a_{rr}b_r\\0\\\vdots\\0
+		\end{pmatrix}~~
+	~~~~~	\Leftrightarrow~~~~~~~\begin{matrix}
+		a_{11}^2x_1=a_{11}b_1\\
+		\vdots\\
+		a_{rr}^2x_r=a_{rr}b_r\\
+		0\cdot x_i=0\\
+		{(i> r)}
+		\end{matrix}~~
+	~~~~~	\Leftarrow~~\begin{matrix}
+		x_1=\frac{b_1}{a_{11}}\\
+		\vdots\\
+		x_r=\frac{b_r}{a_{rr}}\\
+		x_{r+1}=0\\
+		\vdots\\
+		x_n=0
+		\end{matrix}\\
+		\Rightarrow~~x^+=\begin{pmatrix}
+		\frac{1}{a_{11}}b_1\\
+		\vdots\\
+		\frac{1}{a_{rr}}b_r\\
+		0\\
+		\vdots\\
+		\end{pmatrix}
+		0=A^+b,~~~A^+=\begin{pmatrix}
+		\frac{1}{a_{11}}&~&~&~&~&0\\
+		~&\ddots&~&~&~&~\\
+		~&~&\frac{1}{a_{rr}}&~&~&~\\
+		~&~&~&0&~&~\\
+		~&~&~&~&\ddots&~\\
+		0&~&~&~&~&0
+		\end{pmatrix}\in\mathbb{R}^{n\times m}
+		\end{align*}
+{\color{cyan}\textbf{Note:} The $x_i$ for $i>r$ can be chosen arbitrarily, but setting them to zero gives the smallest vector.}
+}
+\end{frame}
+
+\begin{frame}
+	2. Now we use these ideas for the general case: $A \in \Rmn $\\~\\
+	\Hide{
+By using the SVD $A =U\Sigma V^\top$ we find
+$$
+A^TA=(U\Sigma V^T)^TU\Sigma V^T=V\Sigma^T\Sigma V^T,
+$$
+so that the normal equation reads as
+\begin{align*}
+(\ast)~~~~A^TAx=A^Tb~~&\Leftrightarrow~~V\Sigma^T\Sigma (V^Tx)=V\Sigma^T(U^Tb)\\
+&\stackrel{V^T\cdot |}{\Leftrightarrow}~~
+\underbrace{\Sigma^T\Sigma (V^Tx)=\Sigma^T(U^Tb)}_{(\text{normal equation for~} (\Sigma,~U^Tb) )}~~~(\sharp)
+\end{align*}
+Consequently, $x$ solves $(\ast)$ if and only if $y:=V^Tx$ solves $(\sharp)$. Since $V$ is orthogonal, both solutions have the same norm, more precisely,
+$$\|x\|_2^2 = x^\top x = x^\top(V V^\top)x = \|V^\top x\|_2^2=\|y\|_2^2.$$
+From 1. above on diagonal matrices we know that $y^+=\Sigma^+U^Tb$ is the smallest solution of $(\sharp)$. Thus, $x^+ := Vy^+ = V\Sigma^+U^Tb =A^+b$ is the smallest solution of  $(\ast)$, i.e., the minimum norm least squares solution.\\~\\
+\textbf{All in all:} Since orthogonal matrices (here $U$ and $V$) are not only invertible but also isometric and the SVD $A=U\Sigma V^\top$ always exists, we could rely on the result for diagonal matrices (here $\Sigma$).
+}
+\end{frame}
+
+
+\begin{frame}
+	\Subsection{Small Tour: Inverse Problems in Imaging}
+	$\rightarrow$ presented in an ipython notebook.
+\end{frame}
+
+

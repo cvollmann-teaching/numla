@@ -1,0 +1,135 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%COSTUM COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{python}{rgb}{0.0,0.0,0.0}
+\definecolor{darkgray}{rgb}{0.3,0.3,0.3}
+\definecolor{gray}{rgb}{0.6,0.6,0.6}
+\definecolor{navy}{rgb}{0.0,0.0,0.5}
+% PROGPRAK
+\definecolor{pycharmColor}{rgb}{0.3,0.6,0.0}
+\definecolor{texstudioColor}{rgb}{0.5, 0.0, 0.7}
+\definecolor{gitlabColor}{rgb}{1.0, 0.3, 0.0}
+\definecolor{seafileColor}{rgb}{1.0, 0.7, 0.5}
+\definecolor{filemanagerColor}{rgb}{0.4, 0.4, 0.4}
+\definecolor{homework}{rgb}{0.9, 0.9, 0.9}
+\definecolor{inclass}{rgb}{0.6, 0.6, 0.8}
+\definecolor{demo}{rgb}{0.6, 0.8, 0.6}
+%
+\definecolor{solution}{rgb}{0.0,0.4,0.0}
+\definecolor{linksbeamerPrint}{rgb}{0.0, 0.0, 0.0}
+\definecolor{linksbeamerBlack}{rgb}{0.0, 0.7, 1.0}
+\definecolor{exampoints}{rgb}{1.0,0.0,0.0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PRINT vs PRESENTATION Version
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iftoggle{printver}{
+	% printing
+	\definecolor{satzrot}{rgb}{0.5,0.0,0.0}
+	\definecolor{defgruen}{rgb}{0.0,0.35,0.0}
+	\definecolor{header}{rgb}{0,0,0}
+	
+	\hypersetup{
+		colorlinks = true,
+		linkcolor = linksbeamerPrint,
+		anchorcolor = linksbeamerPrint,
+		citecolor = linksbeamerPrint,
+		filecolor = linksbeamerPrint,
+		urlcolor = linksbeamerPrint
+	}	
+	
+}{
+	% presentation
+	\definecolor{satzrot}{rgb}{0.9,0.4,0.2}
+	\definecolor{defgruen}{rgb}{0.5,1.0,0.0}
+	\definecolor{header}{rgb}{1.0, 1.0, 0.5}
+	
+	\hypersetup{
+	colorlinks = true,
+	linkcolor = fontcolor,
+	anchorcolor = fontcolor,
+	citecolor = fontcolor,
+	filecolor = fontcolor,
+	urlcolor = linksbeamerBlack
+}	
+
+}
+
+%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COSTUM THEOREM ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtheoremstyle{plain}
+%{\topsep}   % ABOVESPACE
+%{\topsep}   % BELOWSPACE
+%{\itshape}  % BODYFONT
+%{0pt}       % INDENT (empty value is the same as 0pt)
+%{\bfseries} % HEADFONT
+%{.}         % HEADPUNCT
+%{5pt plus 1pt minus 1pt} % HEADSPACE
+%{}          % CUSTOM-HEAD-SPEC
+
+
+%DEFINITIONS
+\newtheoremstyle{defi}
+{}
+{}
+{\itshape\color{defgruen} \only<presentation>{\setbeamercolor{item}{fg=defgruen}}\only<presentation>{\setbeamercolor{itemize/enumerate body}{fg=defgruen}} \only<presentation>{\setbeamercolor{itemize/enumerate subbody}{fg=defgruen}}   }
+{}
+{\color{defgruen}\bfseries}
+{\bfseries}
+{ }
+{\thmname{#1}\thmnumber{~#2}\thmnote{~(\itshape#3)}}
+
+\theoremstyle{defi}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{definition}[defi]{Definition}
+
+% THEOREMS, LEM and COR
+\newtheoremstyle{theo}
+{}
+{}
+{\itshape\color{satzrot}  \only<presentation>{\setbeamercolor{item}{fg=satzrot}}\only<presentation>{\setbeamercolor{itemize/enumerate body}{fg=satzrot}} \only<presentation>{\setbeamercolor{itemize/enumerate subbody}{fg=satzrot}}  }
+{}
+{\color{satzrot}\bfseries}
+{\bfseries}
+{ }
+{\thmname{#1}\thmnumber{~#2}\thmnote{~(\itshape#3)}}
+
+\theoremstyle{theo}
+\newtheorem{satz}[defi]{Satz}
+\newtheorem{theo}[defi]{Theorem}
+\newtheorem{theorem}[defi]{Theorem}
+\newtheorem{corollary}[defi]{Corollary}
+\newtheorem{folgerung}[defi]{Folgerung}
+\newtheorem{lemma}[defi]{Lemma}
+
+
+%Remarks and examples
+\newtheoremstyle{remark}
+{}
+{}
+{}
+{}
+{\bfseries}
+{\bfseries}
+{ }
+{\thmname{#1}\thmnumber{~#2}\thmnote{~(\itshape#3)}}
+\theoremstyle{remark}
+
+\newtheorem{ex}[defi]{Example}
+\newtheorem{example}[defi]{Example}
+\newtheorem{bsp}[defi]{Beispiel}
+\newtheorem{re}[defi]{Remark}
+\newtheorem{remark}[defi]{Remark}
+\newtheorem{remarks}[defi]{Remark}
+
+

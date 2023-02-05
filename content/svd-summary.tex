@@ -1,0 +1,101 @@
+\begin{frame}
+	~\\
+	{\blank
+		\begin{itemize}\blank
+			\item SVD:\\
+			$\forall~A\in\mathbb{R}^{m\times n}~\exists~U\in\mathbb{R}^{m\times m},~V\in\mathbb{R}^{n\times n}$ orthogonal, $\Sigma:=$ diag$(\sigma_1,\dots,\sigma_r,\sigma_{r+1},\dots,\sigma_l)\in\mathbb{R}^{m\times n}$ diagonal:
+			$$
+			A=U\Sigma V^T
+			$$
+			\begin{align*}
+			U\Sigma V^T&=\underbrace{\begin{pmatrix}
+				|&&|&|&&|\\
+				u_1&\cdots&u_r&u_{r+1}&\cdots&u_m\\
+				|&&|&|&&|
+				\end{pmatrix}}_{\text{orthonormal eigenvectors of}~AA^T}	
+			\underbrace{\left(\begin{array}{ccc|ccc}
+				\sigma_1&&&&\vdots&\\
+				&\ddots&&\cdots&0&\cdots\\
+				&&\sigma_r&&\vdots&\\\hline
+				&\vdots&&&\vdots&\\
+				\cdots&0&\cdots&\cdots&0&\cdots\\
+				&\vdots&&&\vdots&
+				\end{array}\right)}_{\sqrt{\cdot}~\text{of the shared pos. eigenvalues}}
+			\underbrace{\begin{pmatrix}
+				-&v_1&-\\
+				~&\vdots&~\\
+				-&v_r&-\\
+				-&v_{r+1}&-\\
+				~&\vdots&~\\
+				-&v_n&-
+				\end{pmatrix}}_{\text{orthonormal eigenvectors of}~A^TA}\\
+			AA^T&=U\Sigma V^T(V\Sigma^TU^T)=U(\Sigma\Sigma^T)U^T\\
+			A^TA&=V\Sigma^TU^T(U\Sigma V^T)=V(\Sigma\Sigma^T)V^T
+			\end{align*}
+			\item Reduced SVD:
+			\begin{align*}
+			A&=U_r\Sigma_rV_r^T\\
+			&=\sigma_1u_1v_1^T+\sigma_2u_2v_2^T+\dots+\sigma_ru_rv_r^T,~~~\sigma_1\geq\sigma_2\geq\dots\geq\sigma_r>0\\
+			&~~~~~(\uparrow\text{sum of rank-1 matrices})
+			\end{align*}
+		\end{itemize}
+	}
+\end{frame}
+\begin{frame}
+~\\
+{\blank
+\begin{itemize}\blank
+	\item 
+	\underline{SVD:}
+	$$
+	\forall~A\in\mathbb{R}^{m\times n}~\exists~U\in\mathbb{R}^{m\times m},~V\in\mathbb{R}^{n\times n}~\text{orthogonal},~\Sigma\in\mathbb{R}^{m\times n}~\text{diagonal}:~A=U\Sigma V^T
+	$$
+	\item
+	\underline{Rank of a matrix:}
+	$$
+	\text{rank}(A):=~\sharp~\text{positive singular values}~(=~\sharp~\text{positive eigenvalues of}~AA^T~(A^TA))
+	$$
+	\item
+	\underline{Truncated SVD:}
+	\begin{align*}
+	A=U_r\Sigma_rV_r^T&=\sum_{i=1}^r \sigma_iu_iv_i^T\\
+	&=\sigma_1u_1v_1^T+\dots+\sigma_ku_kv_k^T+\dots+\sigma_ru_rv_r^T\\
+	A_k:=\sum_{i=1}^k \sigma_iu_iv_i^T&=U_k\Sigma_k V_k^T~~\text{with rank}(A_k)=k
+	\end{align*}
+	\item
+	\underline{By construction:}
+	$$
+	A=A_k+\sum_{i=k+1}^r \sigma_iu_iv_i^T~\approx~A_k
+	$$
+	If $\sigma_i\approx 0$ for $i>k$, then the matrix $\sum_{i=k+1}^r \sigma_iu_iv_i^T$ has only a small contribution to $A$.
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}
+~\\
+{\blank
+\begin{itemize}\blank
+	\item 
+	\underline{Important fact:} Best approximation property:
+	$$
+	\||A-A_k\||_F\leq \||A-B\||_F~~\forall~B\in\mathbb{R}^{m\times n}~\text{with rank}(B)=k
+	$$
+	$\rightarrow$ Data (matrix) compression (lossy)\\
+	$\rightarrow$ PCA\\~\\
+	$\rightsquigarrow$ similar ideas also hold for tensors
+	\item
+	\underline{Remark:} What is special about the SVD?\\
+	We have already seen different decompositions, e.g.
+	\begin{align*}
+	&A=LU=\sum_{j=1}^m l_ju_j^T\\
+	&\text{or}\\
+	&A=QR=\sum_{j=1}^m q_jr_j^T\\
+	&\text{or}\\
+	&A=V\Lambda V^T=\sum_{j=1}^n \lambda_jv_jv_j^T
+	\end{align*}
+	\underline{However:}\\
+	Due to the nonnegative singular values $\sigma_1\geq\sigma_2\geq\dots\geq\sigma_r$ the rank pieces of the SVD come in order of importance!
+\end{itemize}
+}
+\end{frame}

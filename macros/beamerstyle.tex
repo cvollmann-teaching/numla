@@ -1,0 +1,140 @@
+% SECTION
+\newcommand{\Section}[1]{\section{#1}{{\vspace{-0.2cm}\Large\bf\insertsectionnumber~\insertsection\\[8pt]}}}
+\newcommand{\Subsection}[1]{\subsection{#1}{{\large\bf\insertsectionnumber.\insertsubsectionnumber~\insertsubsection\\[3pt]}}}
+\newcommand{\Subsubsection}[1]{\subsubsection{#1}{{\bf\insertsectionnumber.\insertsubsectionnumber.\insertsubsubsectionnumber~\insertsubsubsection\\[3pt]}}}
+
+% THEME
+\usetheme{Madrid}   
+\useinnertheme{rectangles}
+\usefonttheme{professionalfonts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FRAME 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GEOMETRY
+\usepackage{geometry}
+\geometry{
+%	  papersize={20.71cm,15.621cm}, % ca 4 zu 3
+	 	papersize={18.5cm,13cm}, % fast 4 zu 3
+		hmargin=0.4cm,%
+		vmargin=0.0cm,
+		textwidth=18.5cm,
+		textheight =13cm
+%		hmargin=0cm,%
+%		vmargin=0cm
+}
+% STYLE
+\setbeamertemplate{frametitle}
+{
+	%	{\bf\usebeamerfont{title in head/foot}\insertframetitle}
+}
+
+% FOOTLINE
+% remove navigation
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+	\hfill% 
+	\color{gray}\insertframenumber%
+	\kern0.2cm\vskip0.1cm% 
+}
+
+
+% alignment in the frames set to "justifying" ("Block")
+\usepackage{ragged2e}
+\apptocmd{\frame}{}{\justifying}{}
+
+
+% important: beamer has own toc counter, therefore not sufficient to just use \setcounter
+\makeatletter
+\newcommand{\setnextsection}[1]{%
+	\setcounter{section}{\numexpr#1-1\relax}%
+	\beamer@tocsectionnumber=\numexpr#1-1\relax\space}
+\makeatother
+% section in toc
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+{\vfill}
+{\vskip\itemsep}
+{}
+{}
+\makeatother  
+\setbeamertemplate{subsubsection in toc}{}
+
+
+% COLORS
+\definecolor{cites}{RGB}{115,0,0}
+\definecolor{green_flux}{RGB}{11,151,0} 
+\definecolor{mygray}{RGB}{70,70,70}
+\definecolor{mygray_trans}{RGB}{220,220,220}
+\definecolor{myred}{RGB}{224,83,114}
+\definecolor{myblue}{RGB}{0,148,168}
+\definecolor{myblue_ink}{RGB}{0,150,255}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PRINT vs PRESENTATION Version
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iftoggle{printver}{
+	% printing	
+	\definecolor{fontcolor}{RGB}{0,0,0}
+	\definecolor{bgcolor}{RGB}{255,255,255}
+%	\definecolor{cites}{RGB}{115,0,0}
+}{
+	% presentation
+	\definecolor{bgcolor}{RGB}{50,50,50}
+	\definecolor{fontcolor}{RGB}{255,255,255}
+}
+\setbeamercolor{background canvas}{bg=bgcolor}
+\setbeamercolor{normal text}{fg=fontcolor}
+
+
+
+\setbeamercolor{title}{fg=fontcolor,bg=bgcolor}  								%langer Titel auf Titelfolie
+\setbeamercolor{frametitle}{fg=fontcolor,bg=bgcolor}         					%Titelbox auf einzelnen Folien
+\setbeamercolor{block title}{fg=fontcolor,bg=bgcolor}   	%Block
+\setbeamercolor{enumerate item}{fg=fontcolor, bg=bgcolor}	%Farben enumerate
+\setbeamercolor{enumerate subitem}{fg=fontcolor, bg=bgcolor}
+\setbeamercolor{enumerate subsubitem}{fg=fontcolor, bg=bgcolor}
+
+
+%Farben itemize
+\setbeamertemplate{itemize item}{{$\color{fontcolor}\bullet$}}
+\setbeamertemplate{itemize subitem}{\color{fontcolor}--} 
+%\setbeamercolor{description item}{fg=fontcolor}   	  	
+\setbeamercolor{itemize item}{fg=fontcolor}   	  								
+\setbeamercolor{itemize subitem}{fg=fontcolor} 
+\setbeamercolor{itemize subsubitem}{fg=fontcolor} 
+
+\setbeamercolor{section number projected}{bg=fontcolor,fg=bgcolor}
+\setbeamercolor{subsection number projected}{bg=fontcolor,fg=bgcolor}
+\setbeamercolor{section in toc}{bg=bgcolor,fg=fontcolor}
+\setbeamercolor{section number}{bg=fontcolor,fg=bgcolor}
+
+\setbeamercolor{caption name}{fg=black}                              % Farbe von "Abbildung" oder "Figure"
+
+
+% BIBLIOGRAPHY
+\setbeamertemplate{bibliography item}{{\color{header}\insertbiblabel}}
+\setbeamercolor{bibliography entry author}{fg=fontcolor}
+\setbeamercolor{bibliography entry title}{fg=header}
+\setbeamercolor{bibliography entry item}{fg=fontcolor}
+\setbeamercolor{bibliography entry year}{fg=fontcolor}
+\setbeamercolor{bibliography entry location}{fg=fontcolor}
+
+
+
+
+%% TITLEPAGE
+%\setbeamertemplate{title page}{	
+%	\begin{center}
+%		\vspace{2cm}
+%		\inserttitle\\
+%		\vspace{1cm}
+%		{\normalsize \normalfont \insertauthor}\\
+%		\vspace{0.5cm}
+%		{\small \normalfont \insertdate}
+%	\end{center}	
+%}
+
+

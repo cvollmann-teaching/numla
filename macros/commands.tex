@@ -1,0 +1,111 @@
+% FORMATTING
+\newcommand{\demo}[1]{{\color{gray}\small[ex:#1]}}
+\newcommand{\footcite}[3]{\tiny\color{navy}\textbf{#1},~\textit{#2}~(#3).}
+\newcommand{\Vspace}[1]{\mode<presentation>{\vspace*{#1}}}
+
+%
+\def\licenseText{The content of this work is licensed under a  \hyperref{http://creativecommons.org/licenses/by-sa/4.0/}{}{}{\color{cyan}Creative Commons ``Attribution-ShareAlike 4.0 International''} License.}
+\def\licensePicture[#1]{\includegraphics[height=#1\textheight]{./media/cc-by-sa.pdf}}
+
+
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+%\DeclarePairedDelimiter{\set}{\lbrace}{\rbrace} 
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} 
+
+%%%%%%%%%%%%%
+% MATH OPERATOR
+%%%%%%%%%%%%%
+\DeclareMathOperator{\ggT}{ggT}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\kernel}{ker}
+\DeclareMathOperator{\dm}{dim}
+\newcommand{\winkel}{\measuredangle}
+
+\usepackage{stackengine}
+\def\ucr{\colorbox{bgcolor}{\scalebox{1}{\stackinset{c}{}{c}{-.2pt}{%
+				\textcolor{black}{\sffamily\bfseries\small\color{black} ?}}{%
+				\rotatebox{45}{$\blacksquare$}}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SPECIAL MATRICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\idMat}{\begin{pmatrix} 
+		1 & 0 & \cdots & 0\\ 
+		0 & & \ddots & \vdots \\ 
+		\vdots & \ddots & \ddots & 0 \\ 
+		0 & \cdots & 0 & 1  
+\end{pmatrix}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% elomath/numgeo examples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\laVecOneVal}{\begin{pmatrix}1\\2\\0\end{pmatrix}}
+\newcommand{\laVecOneSym}{a_1}
+\newcommand{\laVecTwoVal}{\begin{pmatrix}2\\0\\1\end{pmatrix}}
+\newcommand{\laVecTwoSym}{a_2}
+\newcommand{\laMatVal}{\begin{pmatrix}1&2\\2&0\\0&1\end{pmatrix}}
+\newcommand{\laMatSym}{A}
+\newcommand{\laRHSone}{\begin{pmatrix}2\\1\\3\end{pmatrix}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BLACKBOARD BOLD
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\F}{{\mathbb{F}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\C}{{\mathbb{C}}}
+% real R
+\newcommand{\Rmn}{\R^{m\times n}}
+\newcommand{\Rnn}{\R^{n\times n}}
+\newcommand{\Rmm}{\R^{m\times m}}
+\newcommand{\Rn}{\R^{n}}
+\newcommand{\Rm}{\R^{m}}
+% complex C
+\newcommand{\Cmn}{\C^{m\times n}}
+\newcommand{\Cnn}{\C^{n\times n}}
+\newcommand{\Cmm}{\C^{m\times m}}
+\newcommand{\Cn}{\C^{n}}
+\newcommand{\Cm}{\C^{m}}
+% field F
+\newcommand{\Fmn}{\F^{m\times n}}
+\newcommand{\Fnn}{\F^{n\times n}}
+\newcommand{\Fn}{\F^{n}}
+\newcommand{\Fm}{\F^{m}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CALIGRAPHIC SYMBOLDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\A}{{\mathcal{A}}}
+\newcommand{\B}{{\mathcal{B}}}
+\newcommand{\M}{{\mathcal{M}}}
+\newcommand{\PP}{{\mathcal{P}}}
+\newcommand{\TT}{{\mathcal{T}}}
+
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\mcB}{\mathcal{B}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcD}{\mathcal{D}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcI}{\mathcal{I}}
+\newcommand{\mcV}{\mathcal{V}}
+\newcommand{\mcW}{\mathcal{W}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcJ}{\mathcal{J}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcT}{\mathcal{T}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcX}{\mathcal{X}}
+\newcommand{\mcY}{\mathcal{Y}}
+\newcommand{\mcZ}{\mathcal{Z}}
