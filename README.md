@@ -2,13 +2,24 @@
 
 Lecture notes on Numerical Linear Algebra. 
 
-Versions:
+Compile lecture notes via
+
+`./create.sh [BUILD-DIRECTORY] [FILENAME] [LECTURETAG]`
+
+The tags for the parameter `LECTURETAG` are defined in `main.tex`
+
+The following versions are created:
+
+ - `handout`, `handout-print`, `inclass`, `inclass-print`, `notes`
+
+where 
 
  - `inclass`: some content hidden for lecture to develop it by hand
  - `handout`: complete notes (not everything texed yet)
  - `print`: black on white
  - `notes`: hidden content of inclass colored for lecturer
 
+The tags for the parameter `LECTURETAG` are defined in `main.tex`
 
 # Syllabus
 
