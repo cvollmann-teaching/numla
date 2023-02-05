@@ -1,7 +1,5 @@
 # Introduction to Numerical Linear Algebra
 
-Lecture notes on Numerical Linear Algebra. 
-
 Compile lecture notes via
 
 `./create.sh [BUILD-DIRECTORY] [FILENAME] [LECTURETAG]`
