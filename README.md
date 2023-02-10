@@ -19,6 +19,8 @@ where
 
 # Syllabus
 
+Lecture = 90min
+
 ## Math Basics (optional)
 
  - Lecture 0: Statements, Sets, Functions, Numbers, Sequences
