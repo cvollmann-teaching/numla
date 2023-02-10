@@ -17,8 +17,6 @@ where
  - `print`: black on white
  - `notes`: hidden content of inclass colored for lecturer
 
-The tags for the parameter `LECTURETAG` are defined in `main.tex`
-
 # Syllabus
 
 ## Math Basics (optional)
