@@ -5,7 +5,7 @@
  - [Exercises](#exercises)
  - [Literature](#literature)
  - [Additional Material](#additional-material)
- - [License and Acknowledgement](#license-and-acknowledgement)
+ - [License](#license)
 
 # Lecture Notes
 
@@ -188,6 +188,12 @@ URL: https://doi.org/10.17885/heiup.206.281.
 
 # Additional Material
 
-# License and Acknowledgement
+# License
 
+The Latex code and the Python sample programs are licensed under [GPL-3.0](LICENSE) and the content of the lecture notes is licensed under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
+# Acknowledgement
+
+The course is based on slides provided by Prof. Dr. Volker Schulz and sheets by Manuel Klar.
+
+Dominik Annen has translated handwritten solutions into LaTex and also added new exercises.
