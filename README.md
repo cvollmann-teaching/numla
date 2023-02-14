@@ -3,7 +3,7 @@
  - [Lecture Notes](#lecture-notes)
  - [Syllabus](#syllabus)
  - [Exercises](#exercises)
- - Literature](#literature)
+ - [Literature](#literature)
  - [Additional Material](#additional-material)
  - [License and Acknowledgement](#license-and-acknowledgement)
 
