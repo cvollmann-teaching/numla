@@ -2,6 +2,9 @@
 
  - [Lecture Notes](#lecture-notes)
  - [Syllabus](#syllabus)
+ - Exercises
+ - Literature
+ - Additional Material
 
 # Lecture Notes
 
