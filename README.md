@@ -1,5 +1,10 @@
 # Introduction to Numerical Linear Algebra
 
+ - [Lecture Notes](#lecture-notes)
+ - [Syllabus](#syllabus)
+
+# Lecture Notes
+
 Compile lecture notes via
 
 `./create.sh [BUILD-DIRECTORY] [FILENAME] [LECTURETAG]`
