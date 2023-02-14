@@ -2,9 +2,10 @@
 
  - [Lecture Notes](#lecture-notes)
  - [Syllabus](#syllabus)
- - Exercises
- - Literature
- - Additional Material
+ - [Exercises](#exercises)
+ - Literature](#literature)
+ - [Additional Material](#additional-material)
+ - [License and Acknowledgement](#license-and-acknowledgement)
 
 # Lecture Notes
 
@@ -61,7 +62,7 @@ Lecture = 90min
 - Lecture 8
   - 2.4 The Cholesky Decomposition
   
-## Eigenvalus: Theory and Algorithms
+## Eigenvalues: Theory and Algorithms
 
 - Lecture 9
   - 3.1 Introduction
@@ -120,7 +121,12 @@ Lecture = 90min
   - 8.4 The Chain Rule and Back Propagation
   
 
+# Exercises
 
+# Literature
 
+# Additional Material
+
+# License and Acknowledgement
 
 
