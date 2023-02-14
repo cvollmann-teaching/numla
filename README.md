@@ -11,20 +11,34 @@
 
 Compile lecture notes via
 
-`./create.sh [BUILD-DIRECTORY] [FILENAME] [LECTURETAG]`
+```bash
+./create.sh [BUILD-DIRECTORY] [FILENAME] [LECTURETAG]
+```
 
-The tags for the parameter `LECTURETAG` are defined in `main.tex`
+ - The tags for the parameter `LECTURETAG` are defined in `main.tex` with `\lecture{<title>}{<tag>}` command. Namely:
+   
+   - Math Basics: `basics`
+   - Fundamentals of Linear Algebra: `la`
+   - Solving Linear Systems (Direct Methods): `sollinsys`
+   - Eigenvalues: `eigvals`
+   - Singular Value Decomposition: `svd`
+   - Solving Linear Systems (Iterative Methods): `iterative`
+   - Least Squares Problems: `leastsquares`
+   - Vector Spaces: `vectorspaces`
+   - Calculus: `nonlinear`
 
-The following versions are created:
+ - The following **versions** are created:
 
- - `handout`, `handout-print`, `inclass`, `inclass-print`, `notes`
+   - `handout`, `handout-print`, `inclass`, `inclass-print`, `notes`
 
-where 
+    where 
 
- - `inclass`: some content hidden for lecture to develop it by hand
- - `handout`: complete notes (not everything texed yet)
- - `print`: black on white
- - `notes`: hidden content of inclass colored for lecturer
+     - `inclass`: some content hidden for lecture to develop it by hand
+     - `handout`: complete notes (not everything texed yet)
+     - `print`: black on white
+     - `notes`: hidden content of inclass colored for lecturer
+ 
+ - You can find the compiled lectures notes in `numla/pdf`
 
 # Syllabus
 
