@@ -137,6 +137,10 @@ Lecture = 90min
 
 # Exercises
 
+ - Exercises for this course are collected in another repo: https://github.com/cvollmann-teaching/exercises/tree/main/database
+   - There you can also find a tool to create worksheets.
+ - The config .json and template files are located here: `numla/exercises`
+
 # Literature
  - The main sources for this course are:
    1. The classic textbook on numerical linear algebra [10] by Trefethen and Bau (also see the [recent interview](https://www.youtube.com/watch?v=yCLE7lGuhuo)  of the authors celebrating the 25th anniversary of the book)
