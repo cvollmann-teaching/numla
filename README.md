@@ -12,7 +12,7 @@
 Compile lecture notes via
 
 ```bash
-./create.sh [BUILD-DIRECTORY] [FILENAME] [LECTURETAG]
+./create.sh [BUILD-DIRECTORY] [FILENAME] [LECTURETAGS]
 ```
 
  - The tags for the parameter `LECTURETAG` are defined in `main.tex` with `\lecture{<title>}{<tag>}` command. Namely:
