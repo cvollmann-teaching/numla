@@ -1,6 +1,6 @@
 # Introduction to Numerical Linear Algebra
 
- - [Lecture Notes](#lecture-notes)
+ - [Lecture Notes (slides)](#lecture-notes)
  - [Syllabus](#syllabus)
  - [Exercises](#exercises)
  - [Literature](#literature)
@@ -38,7 +38,7 @@ Compile lecture notes via
      - `print`: black on white
      - `notes`: hidden content of inclass colored for lecturer
  
- - You can find the compiled lectures notes in `numla/pdf`
+ - You can find the compiled lecture notes in `numla/pdf`
 
 # Syllabus
 
