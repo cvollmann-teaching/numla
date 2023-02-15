@@ -23,7 +23,7 @@
       }
     },
     "table": false,
-    "exercises_database": "/home/vollmann/git/exercises/database/",
+    "exercises_database": "../../git/exercises/database/",
     "exercises": {
       "0_MathBasics": {
         "Header": false
