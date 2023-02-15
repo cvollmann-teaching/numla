@@ -1,0 +1,383 @@
+% !TeX spellcheck = en_US
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USEPACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[margin=2cm]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amscd,latexsym}
+\usepackage{chancery}  % font family
+\renewcommand{\familydefault}{\sfdefault} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} %unter Linux
+\usepackage{graphicx}
+\usepackage{color} % for \definecolor
+\usepackage{hyperref} 
+\renewcommand{\contentsname}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% META DATA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\LectureName{Elements of Mathematics}
+\def\Lecturer{Dr. Christian Vollmann}
+\def\Tutor{}
+\def\Semester{Winter Term 2022/2023}
+\def\corrector{...}
+\def\ccorrector{...}
+\def\cccorrector{...}
+\def\secretary{...}
+\title{{\Huge\bf \LectureName}}
+\author{\Large \Lecturer}
+\date{\Semester}
+\def\classMode{offline}
+% LECTURE
+\def\classMaterial{<link>}
+\def\olatVideos{<link>}
+\def\lecturedates{{\color{blue} \bfseries Tue 10:15 - 11:45 (HS 5)} and  {\color{blue} \bfseries Wed 10:15 - 11:45  (HS 4)}}
+\def\lecturePeriod{Oct 25 -- Feb 08}
+\def\lecturerooms{\textbf{\color{black} HS 6}}
+\def\lectureroomsDigital{<link>}
+\def\firstlecture{{\color{black} \bfseries Tuesday, October 25, 10:15 - 11:45 (HS 5)}}
+\def\slides{<link>}
+% EXERCISE
+\def\exercisedates{{\color{blue} \bfseries Tue 12:30 - 14:00 (HS 8)}}
+\def\exercisePeriod{Oct 25 -- Feb 07}
+\def\firstexercise{{\color{black} \bfseries Tuesday, Oct 25, 12:15 - 13:45 (HS 8)}}
+\def\exerciserooms{<link>}
+\def\sheets{<link>}
+\def\exercisedatesUploadday{Tuesday}
+\def\deliveryDate{{\color{black} weekly until \bfseries Tuesday 10:15}}
+\def\olatAccessPwd{\texttt{elomath-student-pwd}}
+\def\exerciseUploadRepName{OpenOlat}
+\def\exerciseUploadRepLink{<link>}
+\def\exerciseUploadRep{<link>}
+\def\olatSignUp{<link>}
+\def\olatHomework{<link>}
+% TUTORIAL
+\def\tutdates{{\color{blue} \bfseries Tue 14:15 - 15:45  (HS 8)}}
+\def\tutPeriod{Nov 08 -- Feb 07}
+\def\firsttut{{\color{black} \bfseries Tuesday, Nov 08, 14:15 - 15:45 (HS 8)}}
+% EXAM
+\def\examNr{407011e [for Geoscientists: 42003]}
+\def\examdateOne{{\color{red}CW08: \textbf{Feb 21 (HS 5)}} [AE: 07.02./RUE: 14.02.]}
+\def\examroom{}
+\def\exammode{written exam (120min [60min Geoscientists])}
+\def\examduration{120min [60min Geoscientists]}
+\def\examdateTwo{{\color{red}CW29: \textbf{Jul 17 (HS 6)}} [AE: 03.07./RUE: 10.07.]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% START CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% TITLE PAGE
+\maketitle
+\begin{center}
+{\color{blue}\small (last modified: \today)}
+\end{center}
+\setcounter{tocdepth}{1}
+\tableofcontents
+%-----------------------------------------------%
+\newpage
+\section{At one glance}\label{sec:AtOneGlance}
+\begin{tabular}{lll}
+%
+\textbf{Format}	
+&On-site& no streaming or videos \\
+&& no compulsory attendance \\
+&&\\
+\textbf{Content} & Main topics & Introduction to Linear Algebra\\
+&& Eigenvalues: Theory and Algorithms\\
+&& Singular Values: Theory and Applications\\
+&& Solving Linear Systems: Directly and Iteratively\\
+&& Nonlinear Systems\\
+&&\\
+%
+\textbf{Lecture} & Dates and Rooms  &\lecturedates\\
+&& \lecturePeriod \\
+ &Class Material & \classMaterial \\
+&&(\textit{username}=\verb|elomath-user|; \textit{password}=\verb|elomath-student-pwd|)\\
+&&\\
+&&\\
+\textbf{Exercises}
+& Dates and Rooms &\exercisedates \\
+&& \exercisePeriod \\
+&Sheets& uploaded every \exercisedatesUploadday\ on\\
+& & \classMaterial \\
+&Mandatory Submission& \deliveryDate\ on \olatHomework\\
+&Programming Language & Python 3 (using Jupyter Notebook)\\
+&&\\
+%
+%&&\\
+&&\\
+\textbf{Tutorial}
+& Dates and Rooms &\tutdates \\
+&& \tutPeriod \\
+ &Tutor& \corrector \\
+&Content& Fully optional supporting class to review and deepen the material \\
+&&\\
+%
+\textbf{Exam}	
+&Date& \examdateOne\\
+&Date 2 &\examdateTwo\\
+&Mode & \exammode\\
+&Requirements & score of 50\% in each, theoretical and programming assignments\\
+&Registration& is required in Porta and opens $\sim$8 weeks before exam date \\
+&& \underline{closes} 2 weeks before exam date!\\
+&Allowed Media& 1 DIN A4 sheet (=2 pages) with handwritten notes \\	
+&&\\
+%
+ \textbf{Contact}& \Lecturer & \href{mailto:vollmann@uni-trier.de}{vollmann@uni-trier.de}\\
+ & & 0651 201 3453 \\
+ & & E 19	\\
+ &&\\
+ &Graders& \corrector \\
+ &&\ccorrector\\
+ &&\cccorrector\\
+ &&\\
+ &Secretary& \secretary\\
+   &&\\
+%
+\textbf{\color{red}Take Action}
+& Registration & Sign in to the course on porta/studip and \exerciseUploadRep (info below)\\
+&Python & Install \hyperref{https://www.anaconda.com/distribution/}{}{}{anaconda} and check out jupyter notebook and Spyder\\
+&Sheets & Submit your solutions weekly \\	
+ &&\\	
+\end{tabular}
+%-----------------------------------------------%
+\newpage
+\section{Content}
+We will cover topics which are typically addressed in a first course on numerical linear algebra:
+\begin{itemize}
+	\item \text{Fundamentals of Linear Algebra} %(3 Lectures)
+	\item \text{Solving Linear Equations with Direct Methods} %(3 Lectures)
+	\item \text{Eigenvalues: Theory and Algorithms} %(2 Lectures)
+	\item \text{Singular Values: Theory and Applications} %(2 Lectures)
+	\item \text{Least Squares Problems}% (2 Lectures)
+	\item \text{Solving Linear Equations with Iterative Methods}% (2 Lectures)
+	\item \text{Differentiation and Solving Nonlinear Equations with Newton's method}
+\end{itemize}
+%-----------------------------------------------%
+\section{Class Material} \label{sec:classMaterial}
+You will find \textbf{everything} (lecture notes, sheets, info,...) here:
+\begin{center}
+	\slides
+\end{center}
+Always start from there.\\
+~\\
+Apart from that we use \textbf{\exerciseUploadRepName} as a file repository for submission and media:
+\begin{itemize}
+	\item \textbf{Log in} to \exerciseUploadRepName\ using your university (ZIMK) account. If you have not received an university account yet, you can sign up to olat with any other mail address here: \olatSignUp.
+	\item \textbf{Register} for this course using:
+	\begin{itemize}
+		\item link=\exerciseUploadRepLink\
+		\item access-code=\olatAccessPwd.
+	\end{itemize}  
+\end{itemize}
+Until exam registration, you can temporarily forget about \textit{StudIP} and \textit{Porta} \textbf{once you have signed in} to the course.
+%-----------------------------------------------%
+\section{Lecture}
+\begin{itemize}
+	\item The \textbf{first} lecture will take place on {\firstlecture}.
+	\item Before each lecture I will -- in most cases -- upload a set of thinned out slides.	
+\end{itemize}
+%-----------------------------------------------%
+\section{Exercises} \label{sec:exercise}
+\textit{Suggestion: Regularly start exercise at 12:30 (to have a lunch break)?}
+\begin{itemize}
+	\item The \textbf{first} exercise class will take place on {\firstexercise}.
+	\item The current sheet of the week and the solutions of the previous sheet will be uploaded every \exercisedatesUploadday.
+	\item The sheets will contain both theoretical and programming exercises.
+	\item  All programming related parts of this course will be presented in the programming language Python 3. I would recommend that you follow the instructions for the installation of the \hyperref{https://www.anaconda.com/distribution/}{}{}{Anaconda}\footnote{https://www.anaconda.com/distribution/} distribution, which contains all the necessary software (it is available for all platforms!).
+	\item Always give it a shot and first try to solve the exercises on your own before any discussion during class or with your student fellows. 
+	\item I encourage you to work in groups.
+\end{itemize}
+%-----------------------------------------------%
+\subsection{Mandatory Submission}
+\begin{itemize}
+	\item \textbf{Due dates:} Solutions to the assignment sheets have to be submitted on a weekly basis – the due date is written on the top of each
+sheet. %You will be given points for each correct answer.
+\item \textbf{Exam admission requirement:} In order to get admitted for the exam, it is necessary to reach an overall score of 50\% in \textbf{each part}, theoretical exercises (T) and programming exercises (P).\\
+$\rightarrow$ \textit{It is not possible to compensate, e.g., a low score in (T) with a high score in (P)!}
+\item \textbf{Don't upload your solutions to StudIP!} Below I explain how to properly upload to olat.
+\end{itemize}
+%-----------------------------------------------%
+\subsubsection{Remarks on the theoretical exercises}
+\begin{itemize}
+	\item We request each of you to hand in your own sheet with answers for (T).
+	\item \textbf{Upload} a clearly readable .pdf--file containing your solutions for (T) in the respective \textit{Homework} folder 
+	\begin{center}
+		Homework/sheetnumber/Participant Drop Box ~~~on~~~ \exerciseUploadRep.
+	\end{center}
+     \item For instance, you can generate such a .pdf--file in one of the following ways:
+	\begin{itemize}
+		\item Scan your handwritten notes (Scanner or smartphone app),
+		\item Using \LaTeX,
+		\item Using a tablet with stylus (e.g., iPad with Apple Pencil),
+		\item Using a graphics tablet (e.g., Wacom).
+	\end{itemize}
+	\item There is no particular naming of the .pdf--file needed. Nonetheless you can give it a reasonable name such as $$\texttt{sheetnumber\_Lastname.pdf}$$
+\end{itemize}
+%-----------------------------------------------%
+\subsubsection{Remarks on the programming exercises} 
+\begin{itemize}
+	\item Programming exercises are identified by the gray tag ``Python'' in the exercise header.
+	\item Solve the exercises in an IPython Jupyter Notebook using Python 3.
+	\item You are allowed to hand in your submission in \textbf{groups} of three members:
+	\begin{itemize}
+		\item Mention the full name and matriculation number of each member as a comment in the top rows or cell of your submitted source code.
+		\item Only upload \textbf{one submission per group}.
+		\item It is \textit{not mandatory} to work in groups.
+	\end{itemize} 
+	\item \textbf{Upload} the .ipynb file (IPython Notebook) containing your solutions for (P) to the respective \textit{Homework} folder \\%[-1cm]
+	\begin{center}
+		Homework/sheetnumber/Participant Drop Box ~~~on~~~ \exerciseUploadRep.
+	\end{center}
+	 \item There is no particular naming of the .ipynb--file needed. Nonetheless you can give it a reasonable name such as $$\texttt{sheetnumber\_Lastname1Lastname2Lastname3.ipynb}$$
+\end{itemize}
+%-----------------------------------------------%
+\subsubsection{Corrected Submissions and Feedback} 
+\begin{itemize}
+	\item You will find the corrected submissions in 
+		\begin{center}
+		Homework/sheetnumber/Coach Return Box ~~~on~~~ \exerciseUploadRep
+	\end{center}
+	one week later.
+	\item If you have questions to your corrections please \textbf{directly contact your grader} (find mail addresses in Section \ref{sec:AtOneGlance})!
+\end{itemize}
+%-----------------------------------------------%
+\section{Tutorial}
+This year we offer a tutorial which is led by \corrector, who is a master’s student at the Mathematics department. 
+\begin{itemize}
+	\item The first tutorial takes place on \firsttut.
+	\item This tutorial class is fully optional and no additional exam relevant material will be discussed here. Instead it is meant as a supporting class for reviewing and deepening the material of the course.
+\end{itemize}
+%-----------------------------------------------%
+\section{Exam}
+The final test will be a written exam with a duration of \examduration~on
+\begin{center}
+	{\examdateOne} ~(second date: \examdateTwo).
+\end{center}
+%
+\textbf{How to prepare for the exam:}
+\begin{itemize}
+	\item The exercises provide a good feedback on your learning process.
+	\item \textbf{\text{Mastering all exercises will enable you to pass the exam}}. Studying in depth the mathematical foundations of the exercises as presented in the lecture will even enable you to catch a very good grade. So, hang in there!
+	\item Try to understand the basic ideas of each exercise and try to classify the task at hand into the related theory.
+	\item The lecture notes as well as the theoretical and programming exercises will be the \textbf{relevant material} for the exam.  Studying related literature is still recommended and will help to broaden your view.
+	\item I will upload a \textbf{mock exam} 1-2 weeks before the actual exam so that you get a feel for the exam. The mock exam will not be part of the sheet series and solutions will not be provided.
+	%
+	\item Furthermore the exercise class in the last semester week will be used as \textbf{Q\&A session} which you can use to ask any questions that may arise during exam preparation.
+	%
+	\item During exam:
+	\begin{itemize}
+		\item You are allowed to carry 1 DIN A4 sheet (=2 pages) with handwritten notes.
+		\item The  following  media  will be  prohibited:  calculator,  lecture  notes,  other literature, smart device (phone, watch,...).
+	\end{itemize}
+\end{itemize}
+%-----------------------------------------------%
+\section{Questions and Feedback}
+\begin{itemize}
+	\item Please feel free to ask questions of any type \textbf{during the class} since your questions often relate to others, too.
+	\item If you have any questions regarding \textbf{organizational} processes related to this course (like registration in porta/studip, exam regulations) please contact \secretary.
+	\item In addition to that, I am always happy to get suggestions for improvement throughout the course.
+\end{itemize}
+%-----------------------------------------------%
+\section{Literature}
+\begin{itemize}
+	\item The main sources for this course are 
+	\begin{enumerate}
+		\item the classic textbook on numerical linear algebra \cite{TreBau} by Trefethen and Bau (also see the recent \href{https://www.youtube.com/watch?v=yCLE7lGuhuo}{interview of the authors celebrating the 25th anniversary of the book}) 
+		\item  Gilbert Strang's book \textit{Linear Algebra and Learning from Data} \cite{StrangData} (specifically Part I and Part II), which contains basics of linear algebra, numerical linear algebra and finally an introduction to neural networks.
+	\end{enumerate}
+	\item Gilbert Strang's books \cite{StrangLA_intro} and \cite{StrangLA_new} provide smooth introductions to Linear Algebra.
+	\item A ``bible'' for numerical linear algebra is given by \cite{Golub}, which is certainly worth being conducted. %The latter further contains a rich list of other related literature.
+	\item Besides this, inspiration is also taken from \cite{Deuflhard} (a classic textbook on numerical mathematics, in German), \cite{Rannacher} (lecture notes on numerical mathematics, in German) and \cite{Meister} (an accessible book on the numerics of linear systems, in German).
+	\item We also need some rudimentary knowledge of calculus: A classical textbook on calculus is given by \cite{rudin} which is rather technical. The textbook \cite{AnalysisComputerSc} which is written for computer scientist may rather serve as a smooth introduction to the topic (but note that calculus is not the focus of this course!).
+	\item For the Python related parts I strongly recommend the \hyperref{https://scipy-lectures.org/}{}{}{SciPy lectures}\footnote{https://scipy-lectures.org/}, which provide a very nice introduction to scientific computing with Python, and practicing. 
+\end{itemize}
+\bibliography{literature}
+\bibliographystyle{plainurl}
+\nocite*{}  
+%-----------------------------------------------%
+\section{Remarks on ``Elemente der Linearen Algebra''}
+Changed conditions apply for the Applied Geoinformatics program:
+\begin{itemize}
+	\item Completion of half of the lecture and exercise dates (weeks 01-08) substitutes the former ``Elemente der Linearen Algebra'' lecture. 
+	\item Concerning mandatory submissions: You are only asked to submit the \underline{theory part} of the first \textbf{8 sheets} (no programming needed).
+	\item Duration of exam will be solely 60 minutes, the exam takes place on the same date (see above) and content refers solely to the first 8 weeks of the lecture. Credit points: 5 LP.
+\end{itemize}
+%-----------------------------------------------%
+\section{FAQ}
+\begin{enumerate}
+	\item Does this information sheet cover all organizational aspects for this course?\\
+	\textit{Yes.}
+		\item I haven't received my university account yet. Do I miss out on any material?\\
+	\textit{No, you can access all course resources without having your university account; see Section \ref{sec:classMaterial} for this. However, once you have your credentials, please register in Porta/Studip, so that I have you on the participants list (for potential circular mails later on etc.).}
+		\item I could only register for the ``lecture'' class in Porta and not for the ``exercise'' class. Is this a problem?\\
+	\textit{No. The registration is just for me to have you on the screen and for you being reachable via potential circular mails. Thus, registration for one of the classes is sufficient to get all info and material.}
+	\item Do I need to attend the classes?\\
+		\textit{No, there is no compulsory attendance. Formally, you need a minimum score of 50\% in each, programming and theory assignments (which have to be submitted online) to get admitted to the exam. For the exam in turn you have to come on campus and reach a minimum score of 50\% to finally pass this course. How you achieve this, is totally up to you. That being said though, I'd be very happy to meet you in the lecture hall!}´
+	\item Will there be a digital/hybrid format?\\
+	\textit{No. This semester, the course will be taught completely on campus again.}
+	\item How to deal with overlaps with other courses?\\
+	\textit{Unfortunately, overlaps are hard to avoid. There is no compulsory attendance for this course, so you can arrange your schedule as best suits you. I will provide all course notes including a schedule with section numbers as well as solutions to the exercises, so you can keep up with the material. In addition to that, I encourage you to talk with your classmates about the lectures you have missed out.}
+	\item I will not be able to move to Trier by the start of the semester. How to keep up with the course in the meanwhile?\\
+	\textit{Don't worry! I will provide the complete lecture notes and solutions to the assignment sheets.}
+	\item Who shall I contact if I have questions about my submissions (questions about corrections, submissions not considered,...)?\\
+	\textit{Please always contact your grader directly whose name can be found on the corrected submission; see mail addresses above.}
+	\item Is it mandatory to submit the programming exercises in groups?\\
+	\textit{No! However, you can freely team up in groups.}
+	%%
+		\item I have submitted my assignments wrongly or too late. Will I be given the chance to re-submit?\\
+	\textit{No. }
+	\item I have attended this course in earlier semesters and want to write the exam this term. 
+	\begin{enumerate}
+		\item Do I need to register again?
+		\item Do I have to submit solutions again?
+		\item How to prepare for this exam?
+	\end{enumerate}
+	\textit{
+		\begin{enumerate}
+			\item Yes, please register for the lecture on Porta, so that you receive potential circular mails. Also, you definitely need to register for the exam!
+			\item Only for the parts (T/P) for which you haven't received the required 50\% score. Thus, if you already achieved exam admission requirements, then you don't have to submit.
+			\item The content will be similar, so that the former material still serves as a good basis. However, I suggest you also check in with the current lecture notes and sheets to see what is new for you. Also, feel free to join the classes!
+		\end{enumerate}
+	}
+\end{enumerate}
+%-----------------------------------------------%
+\section{Take Action}
+\begin{enumerate}
+	\item Find the website
+	\begin{center}
+		\slides 
+	\end{center} 
+%
+	\item Carefully read Section \ref{sec:exercise}
+%
+	\item Scroll through the preparatory slides on some math basic notation and notions: 
+	\begin{center} \url{https://www.math.uni-trier.de/~vollmann/elomath/script/math-basics-texed.pdf}\end{center} 
+	\item Install anaconda on your machine and check out jupyter notebook
+	\begin{center}
+		\hyperref{https://www.anaconda.com/distribution/}{}{}{https://www.anaconda.com/distribution/}
+	\end{center}
+%
+	\item Get started with Python and the Scipy Stack
+	\begin{center}
+		\hyperref{https://scipy-lectures.org/}{}{}{https://scipy-lectures.org/}
+	\end{center}
+%
+	\item Check out the course repository on olat and upload a ``hello world'' juypter notebook into the homework folder ``Test'' with the correct formatting (.ipynb-file with reasonable file name) for homework submissions 
+	\begin{center}
+		\exerciseUploadRep
+	\end{center}
+%  
+	\item Prepare the first exercise sheet and upload your solutions into the homework folder ``01'' on olat
+\end{enumerate}
+%-----------------------------------------------%
+\newpage
+\section*{Get to know each other}
+\begin{itemize}
+	\item Who has attended a math course already? and which one? (calculus, linear algebra,...)\\~\\~\\
+		\item Who has already done some programming? Which programming language? (R, Python, C, MatLab,...?)\\~\\~\\
+	\item Who has already used or even implemented a numerical routine so far? and which one? (principal component analysis, least squares fit, Gaussian elimination,...)\\~\\~\\
+	\item Which operating system is installed on your machine and (if applicable) which coding environment do you use?\\~\\~\\
+	\item What do you expect from this course? Which numerical topics you'd be interested to learn more about?\\~\\~\\
+\end{itemize}
+\end{document}
