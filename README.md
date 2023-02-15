@@ -137,7 +137,8 @@ Lecture = 90min
 
 # Exercises
 
- - Exercises for this course are collected in another repo: https://github.com/cvollmann-teaching/exercises/tree/main/database
+ - [All Exercises](https://github.com/cvollmann-teaching/numla/blob/main/exercises/all-plain.pdf), [With Solution](https://github.com/cvollmann-teaching/numla/blob/main/exercises/all-solution.pdf)
+ - Exercises for this (and other) courses are collected in another repo: https://github.com/cvollmann-teaching/exercises/tree/main/database
    - There you can also find a tool to create worksheets.
  - The config .json and template files are located here: `numla/exercises`
 
