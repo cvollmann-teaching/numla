@@ -6,6 +6,7 @@
  - [Literature](#literature)
  - [Additional Material](#additional-material)
  - [License](#license)
+ - [Acknowledgement](#acknowledgement)
 
 # Lecture Notes
 
