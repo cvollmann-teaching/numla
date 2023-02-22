@@ -9,7 +9,7 @@
  - [Acknowledgement](#acknowledgement)
  - Some examples (to be filled):
 
-<img src="media/pagerank_small.gif" alt="pagerank_small" style="zoom:80%;"/>
+<img src="media/pagerank_small.gif" alt="pagerank_small" width="350" height="250"/>
 
 # Lecture Notes
 
