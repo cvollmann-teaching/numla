@@ -7,6 +7,9 @@
  - [Additional Material](#additional-material)
  - [License](#license)
  - [Acknowledgement](#acknowledgement)
+ - Some examples (to be filled):
+
+<img src="media/pagerank_small.gif" alt="pagerank_small" style="zoom:80%;"/>
 
 # Lecture Notes
 
@@ -38,7 +41,7 @@ Compile lecture notes via
      - `handout`: complete notes (not everything texed yet)
      - `print`: black on white
      - `notes`: hidden content of inclass colored for lecturer
- 
+
  - You can find the compiled lecture notes in `numla/pdf`
 
 # Syllabus
@@ -147,7 +150,7 @@ Lecture = 90min
  - The main sources for this course are:
    1. The classic textbook on numerical linear algebra [10] by Trefethen and Bau (also see the [recent interview](https://www.youtube.com/watch?v=yCLE7lGuhuo)  of the authors celebrating the 25th anniversary of the book)
    2. Gilbert Strang’s book Linear Algebra and Learning from Data [8] (specifically Part I and Part II), which
-contains basics of linear algebra, numerical linear algebra and finally an introduction to neural networks.
+   contains basics of linear algebra, numerical linear algebra and finally an introduction to neural networks.
 
 - Gilbert Strang’s books [7] and [9] provide smooth introductions to Linear Algebra.
 
