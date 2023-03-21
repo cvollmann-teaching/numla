@@ -193,6 +193,9 @@ URL: https://doi.org/10.17885/heiup.206.281.
 
 # Additional Material
 
+- Info sheet 
+- Imaging Tour
+
 # License
 
 The Latex code and the Python sample programs are licensed under [GPL-3.0](LICENSE) and the content of the lecture notes is licensed under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
